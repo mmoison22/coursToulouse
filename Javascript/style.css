@@ -1,0 +1,7 @@
+:root {
+    --h1Color : green;
+
+}
+h1 {
+    color: var(--h1Color)
+}

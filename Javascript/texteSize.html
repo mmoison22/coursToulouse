@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #texte {
+            font-size: 10px;
+        }
+    </style>
+    <title>Texte Taille</title>
+</head>
+<body>
+    <button id="plus">+</button>
+    <button id="moins">-</button>
+    <p>Taille texte : <span id="valueSize"></span></p>
+    <p id="texte">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, est. Labore culpa dolor delectus earum beatae quaerat necessitatibus, aut similique esse odit sint qui animi quos fugit deleniti voluptatem nulla?
+    Repudiandae delectus id dolorum nobis, iusto facere excepturi accusamus nulla totam tenetur officiis obcaecati nisi voluptatem dolores sequi nam debitis recusandae eum consectetur voluptas adipisci dignissimos pariatur impedit. In, eaque.
+    Inventore quasi quas sed iste repellat mollitia vitae libero veritatis asperiores aut dolore, ipsa architecto beatae expedita tempora voluptatum ullam, soluta unde illo, recusandae consectetur nisi? Neque eius iste voluptatem?
+    At eveniet soluta voluptatum tempore consequuntur corrupti ipsa et nisi minus, recusandae quam ut sit aliquam dolores libero expedita voluptates delectus culpa atque ducimus. Delectus soluta odio molestias eum velit.
+    Eveniet eum illum officia veniam, quia tempora quam ducimus deleniti rerum. Maxime ipsum voluptates cupiditate itaque, laudantium asperiores facilis voluptas porro sint vitae odio sapiente eveniet suscipit nam distinctio sit?
+    Accusamus, minima consectetur voluptates facere, nisi esse at eos, fuga dolore perspiciatis doloribus dolor quam similique harum unde facilis debitis eligendi voluptate. At impedit perferendis id, inventore doloremque nemo cupiditate.
+    Fugit corporis porro repellat, totam doloremque repudiandae eaque blanditiis itaque eum dolore animi? Tempore, obcaecati ipsum libero debitis dolorum sit aliquid ullam unde ex voluptas iste enim neque, nihil nisi.
+    Earum dicta minus similique delectus nisi! Eum, molestiae ipsa, nobis dolorem facere qui iusto vitae voluptate harum dolore deleniti culpa inventore neque. Eveniet natus, ex eaque in voluptatibus distinctio harum.
+    Odit deleniti eius, quidem quos maxime, perferendis eaque ipsam placeat ad doloribus beatae, a officia ratione laborum quas nam expedita dolorum officiis. Molestiae cumque illum cupiditate voluptate facilis laborum impedit?
+    Eveniet voluptate consequuntur deserunt excepturi! Sit impedit nisi deleniti accusamus reiciendis molestias sint fugit eum assumenda, dicta quia quod corrupti numquam, voluptas nihil labore eius. Officia repudiandae incidunt recusandae delectus?</p>
+
+    <script>
+        let size = document.getElementById("valueSize");
+        let texte = document.getElementById("texte");
+        let zoom = document.getElementById('plus');
+        let dezoom = document.getElementById('moins');
+        let oldSize = window.getComputedStyle(texte).getPropertyValue("font-size");
+        let newSize = parseInt(oldSize.substring(0,oldSize.indexOf("p")));
+        
+        zoom.addEventListener("click", () => {
+            newSize++;
+            newSize= newSize;
+            console.log(newSize);
+            texte.style.fontSize=newSize + "px";
+            size.innerHTML = window.getComputedStyle(texte).getPropertyValue("font-size");            
+        });
+
+        dezoom.addEventListener("click", () => {
+            newSize--;
+            newSize= newSize;
+            console.log(newSize);
+            texte.style.fontSize=newSize + "px";
+            size.innerHTML = window.getComputedStyle(texte).getPropertyValue("font-size");            
+        });
+    </script>
+
+</body>
+</html>

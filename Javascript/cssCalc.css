@@ -1,0 +1,64 @@
+body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:#7ccffb;
+  }
+.container {
+    justify-content:center;
+    align-items:center;
+    display: grid;
+    grid-gap:1em;
+    width: 400px;
+    height: 400px;
+    background-color: wheat;
+    grid-template-areas:
+                "a b c d"
+                "e f g h"
+                "i j k l"
+                "m n  o p"
+                "q r s t";
+
+}
+
+#res {
+    background-color: tomato;
+    grid-row-start:1;
+    grid-row-end:2;
+    grid-column-start:1;
+    grid-column-end:4;
+    border: 2px;
+}
+#egal {
+    background-color: burlywood;
+    grid-row-start:1;
+    grid-row-end:2;
+    grid-column-start:4;
+    grid-column-end:5;
+}
+#chiffres {
+    display: flex;
+    flex-wrap:wrap;
+    flex-basis: 33%;
+    background-color: cadetblue;
+    grid-row-start:2;
+    grid-row-end:6;
+    grid-column-start:1;
+    grid-column-end:4;
+}
+
+#operateurs {
+    background-color: violet;
+    grid-row-start:2;
+    grid-row-end:6;
+    grid-column-start:4;
+    grid-column-end:5;
+}
+
+.bouton {
+    border: solid;
+    
+    text-align: center;
+    margin:0.5em;
+    padding:0.5em;
+}

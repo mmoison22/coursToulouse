@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evenement</title>
+    <style>
+        #banner {
+            width: 100%;
+            height: 100px;
+            background-color: aquamarine;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner"></div>
+    <p>méthode old school pas bonne avec du javascript direct dans le html !</p>
+    <button onclick="alert('je suis le premier bouton')";>
+        Clic 1 ! 
+    </button>
+    <p>méthode 2 script dans la page pour faciliter la démo mais il pourrait facilement être mis dans fichier js à part</p>
+    <button id="clic">
+        Clic 2 !
+    </button>
+    <p>méthode 3 avec addEventListener(typeEvenement, function callback) script dans la page pour faciliter la démo mais il pourrait facilement être mis dans fichier js à part</p>
+    <button id="clic3">
+        Clic 3 !
+    </button>
+    <button id="clic4">
+        Clic 4 !
+    </button>
+
+    
+    <script>
+        /* ****************************Gestion d'évenements ********************************/
+        //avec function
+        let clic = document.getElementById("clic");
+        clic.onclick = afficherMessage; //hissage de la fonction placée après
+        function afficherMessage() {
+            alert('je suis le second bouton !');
+        }
+
+        //écouteurs d'évenements
+        let clic3 = document.getElementById("clic3");
+        clic3.addEventListener("click", function(){
+            clic4.removeEventListener("click", alert4);
+            alert('je suis le troisième bouton !');
+        });
+
+        let clic4 = document.getElementById("clic4");
+        clic4.addEventListener("click", alert4);
+
+        function alert4(){
+            alert('je suis le quatrième bouton !');
+        }
+
+        /* ****************************Affichage bandeau à la fin du chargement de la page ********************************/
+        window.addEventListener("DOMContentLoaded", () => {
+            banner();
+        })
+        function banner() {
+            document.getElementById("banner").style.display="block";
+        }
+
+        let bandeau = document.getElementById("banner");
+        bandeau.addEventListener("click", () => {
+            bandeau.style.display="none";
+        })
+    </script>
+</body>
+</html>

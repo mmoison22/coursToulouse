@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS EXO : A propos des Evénements</title>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+
+			table {
+				border-collapse: collapse;
+				margin: 20px auto;
+				width: auto;
+			}
+
+			th,
+			td {
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+				padding: 15px;
+			}
+
+			.lightblue {
+				background-color: lightblue;
+			}
+
+			a {
+				background: #ffffff;
+				border: 1px solid #aa8d56;
+				padding: 2px;
+				text-decoration: none;
+				text-align: center;
+				width: 150px;
+				margin: 0 auto;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<h1 id="titre_exo"></h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Pays</th>
+					<th>Region</th>
+					<th>Population</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>1</th>
+					<th>China</th>
+					<th>Asia</th>
+					<th>1411778724</th>
+				</tr>
+				<tr>
+					<th>2</th>
+					<th>India</th>
+					<th>Asia</th>
+					<th>1384128782</th>
+				</tr>
+				<tr>
+					<th>3</th>
+					<th>USA</th>
+					<th>North America</th>
+					<th>332678074</th>
+				</tr>
+				<tr>
+					<th>4</th>
+					<th>Indonesia</th>
+					<th>Asia</th>
+					<th>271350000</th>
+				</tr>
+				<tr>
+					<th>20</th>
+					<th>France</th>
+					<th>Europe</th>
+					<th>67486000</th>
+				</tr>
+			</tbody>
+		</table>
+
+        <a href="https://www.ecosia.org">Ecosia</a>
+        <a href="https://www.lilo.org">Lilo</a>
+    
+        <script>
+            let lien = document.querySelectorAll("a");
+    
+            lien.forEach (function (link) {
+            link.addEventListener("click", function (e) {
+            e.preventDefault();
+            let cible = this.getAttribute('href');
+            let action = confirm('Voulez-vous quitter la page ?');
+          })});
+        </script>
+
+		<script src="../evt/settings/settings.js"></script>
+	</body>
+
+</html>

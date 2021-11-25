@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"></link>
+    <style>
+        #p1 {
+            color:red;
+        }
+        .section1 {
+            font-weight: 900;
+        }
+    </style>
+    <title>DOM</title>
+</head>
+<body>
+    <p id="p1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, itaque quasi explicabo eveniet, reiciendis doloremque velit optio sequi molestiae suscipit nostrum dicta veritatis laudantium fugiat officiis? Ipsa quia architecto ut?</p>
+    <h1>h1</h1>
+    <p id="sortie">sortie : </p>
+    <section class="section1">je suis une section classe 1</section>
+    <script>
+        let p1 = document.getElementById('p1');
+        p1.style.fontSize="20px";
+        let feuilleStyle = document.styleSheets[0].cssRules;
+        document.write(feuilleStyle.length)
+
+        for (let i=0; i<feuilleStyle.length ;i++) {
+            let regle = feuilleStyle[i];
+            console.log("SelectorText = " + regle.selectorText);
+            console.log("CssText = " + regle.cssText);
+        }
+        //MODIF couleur #p1
+        document.styleSheets[0].cssRules[0].style.backgroundColor="yellow";
+        //SUPPRESSION rule
+        document.styleSheets[0].deleteRule(p1);
+
+        (function ObtenirStyle() {
+            let para1 = document.getElementById("p1");
+            let cssProp = window.getComputedStyle(para1).getPropertyValue("color");
+            document.getElementById("sortie").innerHTML = cssProp;
+        })();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+:root {
+    --bgColor: #ffffff;
+    --JScolor: #F0DB4F;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%; /* 62.5% of 16px = 10px */
+  }
+  
+  body {
+    font-size: 1.4rem; /* 1.4 x 10px=14px */
+    background-color: var(--bgColor);
+  }
+  
+  .wrapper {
+    max-width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #c1c1c1;
+  }
+  
+  
+  h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+    margin: 0;
+  }
+  
+  h2 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    margin: 0;
+  }
+  
+  h3 {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin: 0;
+  }
+
+  h4 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin: 0;
+  }
+
+  h5 {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin: 0;
+  }
+
+  h6 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+  }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS : Thèmes Sombre / Clair</title>
+    <link rel="stylesheet" href="themes.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <ul class="nav-links">
+          <li class="nav-item active">Accueil</li>
+          <li class="nav-item">Gallerie</li>
+          <li class="nav-item">Contact</li>
+          <li class="nav-item" id="toggle">🌜</li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="themes container">
+      <div class="themes-info">
+        <h2 class="theme-1">Bonjour à tous !</h2>
+        <p class="theme-2">JavaScript</p>
+        <p class="theme-3">
+          Voici plusieurs petits projets
+          <span class="highlight">Projet 1</span>-
+          <span class="highlight">Projet 2</span>-
+          <span class="highlight">Projet 3</span>
+        </p>
+        <a class="btn" href="#">A propos</a>
+      </div>
+    </section>
+    <script>
+        let clic = document.getElementById("toggle");
+        clic.addEventListener("click", switchTheme);
+
+
+        function switchTheme() {
+                var element = document.body;
+                element.classList.toggle("lightMode");
+                if (document.getElementById("toggle").innerText =="🌞"){
+                    document.getElementById("toggle").innerText ="🌜";
+                } else {
+                    document.getElementById("toggle").innerText ="🌞";
+
+                }
+            }
+
+    </script>
+
+    <!-- Script Rikou -->
+        <!-- <script>
+            let toggle = document.querySelector('#toggle')
+            toggle.addEventListener('click', ()=>{
+                document.querySelector('body').classList.toggle('lightMode')
+                toggle.innerHTML == '🌞'? toggle.innerHTML ='🌛' : toggle.innerHTML = '🌞'
+    
+            })
+    
+        </script> -->
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS : Ecouteur Evénement</title>
+    <link rel="stylesheet" href="./settings/default.css" />
+    <style>
+      #p1 {
+        background-color: dodgerblue;
+        height: 80px;
+      }
+    </style>
+    <script src="defer.js" defer></script>
+  </head>
+  <body>
+    <h1 id="titre_exo"></h1>
+    <p id="p1"></p>
+    <button id="bt1">Bouton 1</button>
+    <div data-key="81" id="key" data-prenom="Mika">
+      <kbd>Q</kbd>
+    </div>
+    <script>
+
+/***********************************************************************************
+                                        DATASET
+ **********************************************************************************/
+        let pad = document.getElementById("key");
+        console.info("data-key = " + pad.dataset.prenom);
+
+        let btn1 = document.getElementById("bt1");
+        btn1.addEventListener("click", info);
+        function info(e) {
+            //console.log(e);
+            // console.log(e.target.localName);
+            console.log("target = " + e.target);
+
+            if (e.target.localName === "body"){
+                console.log("evt declencheur body : ");
+            } 
+            if (e.target.localName === "button"){
+                console.log("evt declencheur button : ");
+            }  
+        }
+
+        window.addEventListener("keydown", info);
+
+
+    </script>
+    <script src="./settings/settings.js"></script>
+  </body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVENEMENT</title>
+    <style>
+      button {
+        display: block;
+        margin: 0 0 10px 0;
+      }
+      #bandeau {
+        width: 100%;
+        height: 100px;
+        background-color: lightblue;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bandeau">Nous allons utiliser vos méta-informations.</div>
+    <h3>Gestion d'événement : manière 1</h3>
+    <button onclick="alert('Je suis le premier bouton')" ;>
+      BOUTON 1 : Cliquer sur moi !
+    </button>
+
+    <h3>Gestion d'événement : manière 2</h3>
+    <button id="clic2">BOUTON 2 : Cliquer sur moi !</button>
+
+    <h3>Gestion d'événement : manière 3</h3>
+    <button id="clic3">BOUTON 3 : Cliquer sur moi !</button>
+    <button id="clic4">BOUTON 4 : Cliquer sur moi !</button>
+
+    <script>
+      /*****************************************************************************
+                                  GESTION D'EVENEMENTS : manière 2
+          ******************************************************************************/
+      let clic2 = document.getElementById("clic2");
+      clic2.onclick = afficherMessage;
+
+      function afficherMessage() {
+        alert("Je suis le second bouton !");
+      }
+
+      /*****************************************************************************
+                                  GESTION D'EVENEMENTS : manière 3
+          ******************************************************************************/
+      let clic3 = document.getElementById("clic3");
+      clic3.addEventListener("click", function () {
+        clic4.removeEventListener("click", clique4);
+        alert("Je suis le troisième bouton !");
+      });
+
+      let clic4 = document.getElementById("clic4");
+      clic4.addEventListener("click", clique4);
+
+      function clique4() {
+        alert("Je suis le quatrième bouton !");
+      }
+
+      /*****************************************************************************
+                          AFFICHAGE BANDEAU A LA FIN DU CHARGEMENT DE LA PAGE
+          ******************************************************************************/
+      window.addEventListener("DOMContentLoaded", () => {
+        banner();
+      });
+
+      function banner() {
+        document.getElementById("bandeau").style.display = "block";
+      }
+
+      let bandeau = document.getElementById("bandeau");
+      bandeau.addEventListener("click", () => {
+        bandeau.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
+/***************************************************************calculatrice Solution Mohammed********************************************************************
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+                            display: grid;
+                            grid-template-areas:
+                            'resultat resultat resultat C'
+                            'un deux trois plus'
+                            'quatre cinq six moins'
+                            'sept huit neuf div'
+                            'egal zero point X';
+                            grid-gap: 10px;
+                            background-color: #2196F3;
+                            padding: 10px;
+                        }
+        #resultat{grid-area: resultat;}
+        #C{grid-area: C;}
+        #un{grid-area: un;}
+        #deux{grid-area: deux;}
+        #trois{grid-area: trois;}
+        #quatre{grid-area: quatre;}
+        #cinq{grid-area: cinq;}
+        #six{grid-area: six;}
+        #sept{grid-area: sept;}
+        #huit{grid-area: huit;}
+        #neuf{grid-area: neuf;}
+        #zero{grid-area: zero;}
+        #plus{grid-area: plus;}
+        #moins{grid-area: moins;}
+        #div{grid-area: div;}
+        #egal{grid-area: egal;}
+        #point{grid-area: point;}
+        #X{grid-area: X;}
+        
+        
+        
+        
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <input type="text" id="resultat">
+        <button class="boutton" id="C" value="C">C</button>
+
+        <button class="boutton" id="un" value="1">1</button>
+        <button class="boutton" id="deux" value="2">2</button>
+        <button class="boutton" id="trois" value="3">3</button>
+        <button class="boutton" id="plus" value="+">+</button>
+        <button class="boutton" id="quatre"value="4">4</button>
+        <button class="boutton" id="cinq"value="5">5</button>
+        <button class="boutton" id="six"value="6">6</button>
+        <button class="boutton" id="moins"value="-">-</button>
+        <button class="boutton" id="sept"value="7">7</button>
+        <button class="boutton" id="huit"value="8">8</button>
+        <button class="boutton" id="neuf" value="9">9</button>
+        <button class="boutton" id="div"value="/">/</button>
+        <button class="boutton" id="egal"value="=">=</button>
+        <button class="boutton" id="zero"value="0">0</button>
+        <button class="boutton" id="point"value=".">.</button>
+        <button class="boutton" id="X"value="*">X</button>
+      </div>
+      <script>
+          var btns=document.querySelectorAll(".boutton");
+          var inp=document.getElementById("resultat");
+          
+            for(let x of btns)
+                x.addEventListener("click",function(){
+                    if (x.value=="C")
+                        inp.value="";
+                    else if(x.value=="=")
+                    inp.value=eval(inp.value);
+                    else
+                        inp.value+=x.value;
+
+            })
+            
+                
+      </script>
+
+</body>
+</html>*/
+
+/****************************************taille texte solution KIM***********************************************
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            margin-bottom: 10px;
+            height: 30px;
+            width: 50px;
+        }
+
+        #para {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="plus" value="+" class="buttonsize">+</button>
+        <button id="moins" value="-" class="buttonsize">-</button>
+    </div>
+    <h1>Lorem, ipsum.</h1>
+    <div id="para">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum magni, tempore voluptates necessitatibus, nam
+        neque aliquid fugit ratione delectus excepturi sed autem quas eaque possimus voluptate rerum exercitationem
+        dolore? Nihil.
+        A obcaecati quas eum aperiam fugit aliquam. Dolorem, eaque? Sunt quo eos, quaerat ratione error doloremque
+        molestiae quos natus impedit doloribus reprehenderit inventore ipsam temporibus consequatur. Corporis, pariatur.
+        Iure, minima!
+        Ad ut error eius eligendi, maxime, laudantium explicabo optio at ex enim iure? Repellendus commodi officiis
+        debitis, quasi fugit aut unde ipsam porro velit voluptates ratione excepturi eligendi dolorem molestiae!
+        Culpa, qui, nobis quae animi tempora rerum non illo ratione omnis odio dolor excepturi debitis impedit libero
+        autem dolorum deserunt ea beatae in molestiae velit deleniti corrupti iusto. Necessitatibus, omnis?
+        Accusantium et earum deserunt nam dignissimos nulla debitis officiis a, magni voluptate iusto saepe nemo
+        inventore enim sit perferendis. Optio provident modi velit nihil dolorum ea harum voluptas sed. Esse.
+        Deserunt nostrum repellat quod unde asperiores repudiandae natus doloremque, exercitationem facilis cupiditate,
+        itaque dolore corrupti enim incidunt blanditiis rem? Molestias nesciunt culpa explicabo, autem eos maiores.
+        Libero, fugit sit! Tenetur.
+        Error quam minus eveniet et veniam a cum sunt molestiae, labore repellat laboriosam voluptatem at architecto id
+        quo in nulla cupiditate. Harum iusto facere ut illum consectetur hic voluptas pariatur!
+        Ducimus laborum autem est recusandae unde nam neque quae incidunt. Ipsam reprehenderit et pariatur quis cumque
+        praesentium eligendi? Laboriosam vel aliquid ad odio! Dignissimos dolor vel ullam commodi odit mollitia.
+        Unde fugit harum eligendi. Hic delectus nemo corrupti aspernatur assumenda! Perferendis provident earum
+        doloremque eveniet natus? Quos sed deleniti alias! Aspernatur illo eveniet laboriosam, earum maxime doloribus
+        dolore similique libero.
+        Mollitia sit praesentium, rem, ipsa, labore dolores aliquam aliquid eveniet illo culpa doloribus officiis
+        inventore. Blanditiis illum distinctio eveniet temporibus eos, quia adipisci quos molestias doloremque, harum
+        est consequatur eaque.
+    </div>
+
+    <script>
+        let _para = window.getComputedStyle(para);
+
+        // Méthode 1
+        // document.getElementById("plus").addEventListener("click", () => {
+        //     let _size = _para.getPropertyValue("font-size");
+        //     let _newsize = parseInt(_size.substring(0, _size.indexOf("p")));
+        //     _newsize++;
+        //     console.log(_size);
+        //     console.log(_newsize + "px");
+        //     document.getElementById("para").style.fontSize = _newsize + "px";
+        // });
+
+        // document.getElementById("moins").addEventListener("click", () => {
+        //     let _size = _para.getPropertyValue("font-size");
+        //     let _newsize = parseInt(_size.substring(0, _size.indexOf("p")));
+        //     _newsize--;
+        //     console.log(_size);
+        //     console.log(_newsize + "px");
+        //     document.getElementById("para").style.fontSize = _newsize + "px";
+        // });
+
+        // Methode 2 avec une fonction autoinvoqué
+        (
+            function autoAddListeners() {
+                let buttons = document.querySelectorAll(".buttonsize");
+
+                buttons.forEach(function (element, currentIndex, listObj) {
+                    // console.log(element.id);
+                    document.getElementById(element.id).addEventListener("click", () => {
+                        let _size = _para.getPropertyValue("font-size");
+                        let _newsize = parseInt(_size.substring(0, _size.indexOf("p")));
+                        
+                        if (element.textContent == "+") {
+                            _newsize++;
+                        }
+                        else {
+                            _newsize--;
+                        }
+
+                        document.getElementById("para").style.fontSize = _newsize + "px";
+                        // console.log("id=" + element.id + ", value=" + element.value + ", textContent=" + element.textContent);
+                    });
+                });
+
+            }
+        )()
+    </script>
+</body>
+
+</html>
+
+/*******************************taille texte Rickou*************************************/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 16px;
+        }
+        main {
+            display: flex;
+            
+        }
+        h3 {
+            background-color: rgb(26, 25, 25);
+            padding: 5px 10px;
+            color: rgb(248, 248, 248);
+        }
+        hr {
+            border : 2px solid rgb(26, 25, 25);
+        }
+        input {
+            border : none;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+        aside div:first-child {
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Titre de l'acticle</h1>
+            <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere at omnis error, ratione veniam nihil sequi, ad sed possimus hic autem quae vero laudantium quisquam rem aspernatur, dicta id laboriosam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere at omnis error, ratione veniam nihil sequi, ad sed possimus hic autem quae vero laudantium quisquam rem aspernatur, dicta id laboriosam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere at omnis error, ratione veniam nihil sequi, ad sed possimus hic autem quae vero laudantium quisquam rem aspernatur, dicta id laboriosam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere at omnis error, ratione veniam nihil sequi, ad sed possimus hic autem quae vero laudantium quisquam rem aspernatur, dicta id laboriosam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere at omnis error, ratione veniam nihil sequi, ad sed possimus hic autem quae vero laudantium quisquam rem aspernatur, dicta id laboriosam?</p>
+        </section>
+        <aside>
+            <h3>Réglage</h3>
+            <div>
+                <button id="plus">+</button>
+                <button id="moins">-</button>
+            </div>
+            <hr>
+            <div>
+                <label for="taille">Taille actuelle : </label>
+                <input type="text" id="taille" value="16"></div>
+        </aside>
+    </main>
+
+    <script>
+        let taille = document.getElementsByTagName('input')
+        let p1 = document.getElementById('p1')
+        let newSize = 16
+        
+        document.querySelector('#plus').addEventListener('click', editSize)
+        document.querySelector('#moins').addEventListener('click', editSize)
+        
+        function editSize(e){
+            e.target.innerText == '+'? newSize++ : newSize--
+            p1.style.fontSize = newSize + 'px'
+            taille[0].value = newSize
+        }
+
+    </script>
+</body>
+</html>
