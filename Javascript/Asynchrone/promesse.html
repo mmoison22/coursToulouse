@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesse</title>
+</head>
+<body>
+    <script>
+        let qte = 10;
+        const p1 = new Promise((resolve, reject)=>{
+            let tarif = 100;
+            resolve(tarif);
+            reject("tarif indisponible");
+        });
+        const p2 = new Promise((resolve, reject)=>{
+            let fraisPort = 20;
+            //resolve(fraisPort);
+            reject("port indisponible");
+        });
+
+        let tab = [p1, p2];
+
+        Promise
+        .all(tab)
+        .then((res3)=>{
+            console.log("qté commandée = "+ qte);
+            let calcul = (qte * res3[0])+res3[1];
+            console.log("total = " + calcul);
+        })
+        .catch((err)=> {
+            console.log("error : "+err);
+        })
+
+        // p1.then((res)=> { //res est le retour de p1
+        //     let resultat = qte*res;
+        //     console.log("resultat = " + resultat);
+        // })
+        // .catch((rej)=>{
+        //     console.log("rej : " + rej);
+        // });
+    </script>
+</body>
+</html>
