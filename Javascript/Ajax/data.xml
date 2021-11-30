@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<artistes>
+    <artiste>
+        <nom>The Beatles</nom>
+        <titre>Let It Be</titre>
+        <annee>1970</annee>
+    </artiste>
+    <artiste>
+        <nom>Aretha Franklin</nom>
+        <titre>Respect</titre>
+        <annee>1967</annee>
+    </artiste>
+</artistes>

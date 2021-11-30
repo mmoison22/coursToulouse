@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery-3-6-0.js"></script>
+    <title>JQuery Bases</title>
+</head>
+<body>
+    <artice class="art">
+        <div class="foo">1
+            <p>p de div class foo</p>
+        </div>
+        <div class="foo">2</div>
+        <div>3</div>
+        <div>4</div>
+    </artice>
+    <h1>
+        <p>Hello 1 </p>
+        <p>Hello 2</p>
+    </h1>
+    <p>Hello en dehors de h1</p>
+    <div>Contenu de div</div>
+    <div>Contenu de div</div>
+    <div>Contenu de div</div>
+    <div>Contenu de div</div>
+    <div>Contenu de div</div>
+    <div>Contenu de div</div>
+
+    <script>
+        $(function(){
+            alert("Le DOM est prêt !");
+        });
+        let divs = $('div').length;
+        console.log(divs);
+
+        let art = $('art', $('div'));
+        console.log(art);
+
+        $('h1')
+        .click(function(){
+            $('p', this).css('color', 'red'); //this permet de rester dans le contexte de la balise h1
+        });
+        $('div').eq(3).css('background-color', 'lightblue');
+
+        $('div.foo').has('p').css('color', 'blue');
+
+        $('p').each(function(index, el){
+            console.log('contenu du p n° : '+index+ $(el).text());
+        });
+    </script>
+</body>
+</html>

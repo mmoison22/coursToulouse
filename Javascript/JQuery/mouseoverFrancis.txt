@@ -1,0 +1,22 @@
+<body>
+	    <div>
+            <p>paragraphe 1</p>
+            <p>paragraphe 2</p>
+            <p>paragraphe 3</p>
+            <p>paragraphe 4</p>
+    	</div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+        	$(function(){
+
+    console.warn($('div:first').html());
+  
+    
+    $('div p').hover(function() {
+        $(this).css("color", "red");
+    }).mouseleave(function() {
+        $(this).css("color", "black");
+    })    
+}); 
+        </script>
+</body>

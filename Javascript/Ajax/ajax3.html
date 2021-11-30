@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX, fichier JSON</title>
+</head>
+
+<body>
+
+    <body>
+        <h1>AJAX : récupération de données d'un fichier JSON</h1>
+        <h1>Post </h1>
+        <ul class="post"></ul>
+        <button id="btn">clic pour voir données fichier JSON</button>
+
+        <script>
+            let post = document.querySelector('.post');
+            let btn = document.querySelector('button');
+            let url = "https://jsonplaceholder.typicode.com/posts";
+
+            btn.addEventListener("click", () => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.responseType = "json"; //spécification du format de fichier à récupérer
+                //affichage des données récupérées
+                xhr.onload = function() {
+                    console.log(xhr.response);
+                    for(let i=0; i<xhr.response.length; i++) {
+                    let _li = document.createElement("li");
+                    let _h4 = document.createElement("h4");
+                    let _p = document.createElement("p");
+
+                    _h4.innerHTML = xhr.response[i].title;
+                    _p.innerHTML = xhr.response[i].body;
+
+                    _li.appendChild(_h4);
+                    _li.appendChild(_p);
+                    post.appendChild(_li);
+                }
+                }
+                xhr.send();
+            });
+        </script>
+    </body>
+
+</html>

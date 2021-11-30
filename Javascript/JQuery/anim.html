@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQ : Effets</title>
+    <style type="text/css">
+        .box {
+            width: 100px;
+            height: 100px;
+            border: solid black 1px;
+            float: left;
+            background: blue;
+            margin-left: 5px;
+        }
+    </style>
+    <script src="./jquery-3-6-0.js"></script>
+
+</head>
+
+<body>
+    <p>Liste des boites</p>
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <div id="box3" class="box"></div>
+    <div id="box4" class="box" style="display: none;"></div>
+    <button id='btn'>Faites apparaitre la box 4 !</button>
+    <p>Animation</p>
+    <div id="box5" class="box"></div>
+    <button id="anim">Animation</button>
+    <button id="reset">Reset</button>
+    <script>
+        $("#box1").click(function () {
+            $(this).toggle("slow");
+        })
+
+        $("#box2").click(function () {
+            $(this).fadeOut("slow");
+        })
+
+        $("#box3").click(function () {
+            $(this).slideUp("slow");
+        })
+        $("#btn").click(function () {
+            $("#box4").fadeIn("slow");
+        })
+
+        $("#anim").click(function () {
+            $("#box5").animate({
+                height: "500px",
+                width: "500px",
+                duration: 500
+            })
+        })
+
+        $("#reset").click(function () {
+            $("#box5").css({
+                height: "100px",
+                width: "100px"
+            })
+        })
+    </script>
+</body>
+
+</html>

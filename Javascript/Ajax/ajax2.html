@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax, XML</title>
+</head>
+<body>
+    <h1>AJAX : récupération de données d'un fichier XML</h1>
+
+<div>
+
+</div>
+    <script>
+        let div = document.querySelector('div');
+
+        //Instancaition de la classe XMLHttpRequest
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function(){
+            console.log(this);
+            //Valeur de la propriété readystate
+            //0 : la demande n'a pas été initialisée
+            //1 : connexion établie avec le serveur. La méthode open() a été appelée
+            //2 : demande reçue par le serveur. La méthode send() a été envoyée
+            //3 : Ttt de la demande. Le contenu du fichier data extrait par le serveur
+            //4 : réponse prête
+            if(this.readyState == 4 && this.status==200){
+                let xml = this.responseXML;
+                let tous = xml.getElementsByTagName('artiste').length;
+                div.innerHTML = `Voici les données relatives aux ${tous} artistes : `;
+                for(let i=0; i<tous; i++){
+                    div.innerHTML += "<br>";
+                    div.innerHTML += xml.getElementsByTagName("nom").item(i).textContent;
+                    div.innerHTML += "<br>";
+                    div.innerHTML += xml.getElementsByTagName("titre").item(i).textContent;
+                    div.innerHTML += "<br>";
+                    div.innerHTML += xml.getElementsByTagName("annee").item(i).textContent;
+                    div.innerHTML += "<br>";
+                    div.innerHTML += "----------------------------------------------------------------------";
+                }
+
+            } else if (this.readyState == 4 && this.status==404){
+                div.innerHTML = "try again !";
+            } else {
+                div.innerHTML = '<img src="./loader.gif">';
+            }
+            
+        }
+
+
+        //Ouverture fichier cible
+        xhr.open('GET', './data.xml');
+        //Retour du fichier
+        xhr.send();
+
+    </script>
+</body>
+</html>

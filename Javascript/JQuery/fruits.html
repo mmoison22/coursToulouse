@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste Fruits</title>
+    <script src="./jquery-3-6-0.js"></script>
+  </head>
+  <body>
+        <!-- 
+        afficher tous les agrumes en vert
+        afficher tous les fruits rouges en rouge
+        afficher le fruit favoris en noir, et en majuscule
+        afficher le texte 'mon fruit préféré' à coté du fruit "favoris" 
+    -->
+    <h2>Liste de fruits</h2>
+    <ul id="fruits">
+      <li class="agrume">Orange</li>
+      <li class="fruit_rouge">Framboise</li>
+      <li class="fruit_rouge">Cerise</li>
+      <li class="agrume">Pamplemousse</li>
+      <li id="favoris" class="fruit_rouge">Fraise</li>
+      <li class="fruit_rouge">Groseille</li>
+      <li class="agrume">Citron</li>
+      <li class="fruit_rouge">Mûres</li>
+    </ul>
+    <script>
+        $('ul').on("click", function(){
+            $('.agrume').css('color', 'green');
+            $('.fruit_rouge').not('#favoris').css('color', 'red');
+            $('#favoris').css('text-transform', "uppercase");
+            $('#favoris').append('🖤');
+        });
+    </script>
+  </body>
+</html>
